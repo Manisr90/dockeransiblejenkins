@@ -2,6 +2,11 @@
 - hosts: demo
   become: True
   tasks:
+    - name: Update Repo
+      apt:
+        name: "*"
+        state: present   
+         
     - name: Install python pip
       apt:
         name: python-pip
