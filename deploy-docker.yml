@@ -4,9 +4,9 @@
   tasks:
     - name: Update Repo
       apt:
+        update_cache: yes
         name: "*"
-        state: present   
-         
+        state: present            
     - name: Install pip
       apt:
         name: pip
