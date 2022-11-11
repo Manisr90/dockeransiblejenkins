@@ -21,7 +21,7 @@
         state: present        
     - name: Start the container
       docker_container:
-        name: tomimage
+        name: tomcatcontainer
         image: "manikandan27/tomimage:${BUILD_NUMBER}"
         state: started
         published_ports:
