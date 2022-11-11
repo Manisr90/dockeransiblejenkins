@@ -7,9 +7,9 @@
         name: "*"
         state: present   
          
-    - name: Install python pip
+    - name: Install pip
       apt:
-        name: python-pip
+        name: pip
         state: present
     - name: Install docker
       apt:
