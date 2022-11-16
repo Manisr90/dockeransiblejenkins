@@ -16,7 +16,7 @@ pipeline{
                 
                 script{
                     
-                    git branch: 'main', url: 'https://github.com/Manisr90/demo-counter-app.git'
+                    git branch: 'main', url: 'https://github.com/Manisr90/dockeransiblejenkins.git'
                 }
             }
         }
