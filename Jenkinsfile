@@ -1,6 +1,6 @@
 pipeline{
     
-    agent mini
+    agent 'mini'
     
      tools{
          
