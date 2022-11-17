@@ -88,12 +88,12 @@ pipeline{
                 script{                                       
                     def readPomVersion = readMavenPom file: 'pom.xml'
                     nexusArtifactUploader artifacts: 
-                        [[artifactId: 'junit',
+                        [[artifactId: 'dockeransible',
                           classifier: '',
                           file: 'target/dockeransible.war', 
                           type: 'war']], 
                         credentialsId: 'nexus-pwd', 
-                        groupId: 'junit',
+                        groupId: 'in.javahome',
                         nexusUrl: '3.10.174.182:8081', 
                         nexusVersion: 'nexus3',
                         protocol: 'http',
