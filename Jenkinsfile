@@ -78,8 +78,8 @@ pipeline{
             
             steps{
             
-                script{
-                    
+                script{                                       
+                    def readPomVersion = readMavenPom file: 'pom.xml'
                     nexusArtifactUploader artifacts: 
                         [[artifactId: 'junit',
                           classifier: '',
@@ -91,7 +91,7 @@ pipeline{
                         nexusVersion: 'nexus3',
                         protocol: 'http',
                         repository: 'skanjob', 
-                        version: '3.8.1'
+                        version: "${readPomVersion.version}"
                 
                 }
               }
