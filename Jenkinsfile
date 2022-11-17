@@ -74,6 +74,30 @@ pipeline{
                     }
                 }
             }
+        stage('Upload war to Nexus'){
+            
+            steps{
+            
+                script{
+                    
+                    nexusArtifactUploader artifacts: 
+                        [[artifactId: 'junit',
+                          classifier: '',
+                          file: 'target/dockeransible.war', 
+                          type: 'war']], 
+                        credentialsId: 'nexus-pwd', 
+                        groupId: 'junit',
+                        nexusUrl: '3.10.174.182:8081', 
+                        nexusVersion: 'nexus3',
+                        protocol: 'http',
+                        repository: 'skanjob', 
+                        version: '3.8.1'
+                
+                }
+            
+            }
+        
+          }
         }
       }
 
