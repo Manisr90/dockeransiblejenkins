@@ -1,6 +1,13 @@
 pipeline{
     
-    agent 'mini'
+    agent {
+    
+        node{
+            
+            label 'mini'
+            
+        }
+    }
     
      tools{
          
