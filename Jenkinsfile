@@ -98,7 +98,7 @@ pipeline{
                         nexusVersion: 'nexus3',
                         protocol: 'http',
                         repository: 'skanjob', 
-                        version: "${readPomVersion.version}"
+                        version: '${readPomVersion.version}'
                 
                 }
               }
