@@ -88,8 +88,8 @@ pipeline{
             steps{
             
                 script{                                       
-                    def pom = readMavenPom file: 'pom.xml'
-                    def nexusRepo = pom.version.endsWith("SNAPSHOT") ? "skan-snapshot" : "skanjob"
+                    def readPomVersion = readMavenPom file: 'pom.xml'
+                    def nexusRepo = readPomVersion.version.endsWith("SNAPSHOT") ? "skan-snapshot" : "skanjob"
                     nexusArtifactUploader artifacts: 
                         [[artifactId: 'dockeransible',
                           classifier: '',
@@ -101,14 +101,13 @@ pipeline{
                         nexusVersion: 'nexus3',
                         protocol: 'http',
                         repository: 'nexusRepo', 
-                        version: "${pom.version}"
+                        version: "${readPomVersion.version}"
                 
                 }
               }
         
           }
         }
-
 }
 
 
