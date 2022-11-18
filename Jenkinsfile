@@ -6,6 +6,7 @@ pipeline{
             
             label 'mini'
             
+            
         }
     }
     
@@ -14,6 +15,7 @@ pipeline{
          maven 'maven'
          
         }
+    
     
     stages {
         
@@ -87,7 +89,7 @@ pipeline{
             
                 script{                                       
                     def pom = readMavenPom file: 'pom.xml'
-                    def nexus = readMavenPom file.version.endswith("SNAPSHOT") ? "skan-snapshot" : "skanjob"
+                    def nexus = pom.version.endswith("SNAPSHOT") ? "skan-snapshot" : "skanjob"
                     nexusArtifactUploader artifacts: 
                         [[artifactId: 'dockeransible',
                           classifier: '',
