@@ -39,16 +39,7 @@ pipeline{
                 }
             }
         }
-        stage('Integration testing'){
-            
-            steps{
-                
-                script{
-                    
-                    sh 'mvn verify -DskipUnitTests'
-                }
-            }
-        }
+        
         stage('Maven build'){
             
             steps{
@@ -119,6 +110,26 @@ pipeline{
                     sh 'docker tag $JOB_NAME:v1.$BUILD_ID manikandan27/$JOB_NAME:latest'
                 
                 }
+            
+            }
+        
+        }
+        
+        stage('Dockerimage push to Dockerhub'){
+            
+            steps{
+            
+                script{
+                
+                     withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerpwd')]) {
+                         sh 'docker login -u manikandan27 -p ${dockerpwd}'
+                         sh 'docker push manikandan27/$JOB_NAME:v1.$BUILD_ID'
+                         sh 'docker push manikandan27/$JOB_NAME:latest'
+        
+                    }
+                                              
+                }
+            
             
             }
         
