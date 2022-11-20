@@ -125,7 +125,7 @@ pipeline{
                          sh 'docker login -u manikandan27 -p ${dockerpwd}'
                          sh 'docker push manikandan27/$JOB_NAME:v1.$BUILD_ID'
                          sh 'docker push manikandan27/$JOB_NAME:latest'
-        
+                       }
                     }
                                               
                 }
@@ -152,9 +152,5 @@ pipeline{
                            
                      }    
                 }
-        
-            
-      }
+   }
 }
-
-      }
