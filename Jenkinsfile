@@ -140,9 +140,9 @@ pipeline{
                         script{
                             
                             try{
-                                 sh "ssh ubuntu@18.134.136.24 kubectl apply -f ."
+                                 sh 'ssh ubuntu@18.134.136.24 kubectl apply -f .'
                             }catch(error){
-                                 sh "ssh ubuntu@18.134.136.24 kubectl create -f ."
+                                 sh 'ssh ubuntu@18.134.136.24 kubectl create -f .'
                             
                             }   
                             
