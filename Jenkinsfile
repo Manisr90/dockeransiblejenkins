@@ -10,7 +10,7 @@ pipeline{
     }
     environment{
         
-        DOCKER_TAG = getdockertag()
+        DOCKER_TAG = getDockerTag()
     
     }
      tools{
