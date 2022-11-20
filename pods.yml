@@ -1,0 +1,12 @@
+apiversion: v1
+kind: pod
+metadata:
+  name: skan
+  labels:
+    app: skan
+spec:
+  containers:
+    - name: skan
+      image: manikandan27/skan:tagverison
+      ports:
+        - containerport: 8080
