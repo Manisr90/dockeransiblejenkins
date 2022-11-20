@@ -15,6 +15,10 @@ pipeline{
          maven 'maven'
          
         }
+     environment{
+        
+            DOCKER_TAG= getDockerTag()
+        }
     
     
     stages {
@@ -98,11 +102,7 @@ pipeline{
               }
         
           }
-        
-        environment{
-        
-            DOCKER_TAG= getDockerTag()
-        }
+             
         
         stage('Docker image build'){
         
