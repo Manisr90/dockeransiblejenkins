@@ -7,11 +7,7 @@ pipeline{
             label 'mini'
                         
         }
-         environment{
-        
-        DOCKER_TAG = getDockerTag()
-    
-      }
+      
     }
    
      tools{
@@ -102,6 +98,12 @@ pipeline{
               }
         
           }
+        
+        environment{
+        
+        DOCKER_TAG = getDockerTag()
+    
+      }
         
         stage('Docker image build'){
         
