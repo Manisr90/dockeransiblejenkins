@@ -1,0 +1,13 @@
+kind: service
+apiversion: v1
+metadata:
+  name: skan
+spec:
+  selector:
+     app: skan
+  ports:
+   - protocol: tcp
+     port: 80
+     targetport: 8080
+  type: LoadBalancer  
+     
