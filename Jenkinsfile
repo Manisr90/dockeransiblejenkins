@@ -129,11 +129,31 @@ pipeline{
                     }
                                               
                 }
-            
-            
+                        
             }
+            stage('Deploy to Kubernetes'){
+             
+                steps{
+                        sh 'chmod +x changetag.sh'
+                        sh './changetag.sh $BUILD_ID'
+                        sshagent(['kops']) {
+                        sh 'scp -o StrictHostKeyChecking=no services.yml skan-pod.yml ubuntu@18.134.136.24:/home/ubuntu/'  
+                        
+                        script{
+                            
+                            try{
+                                 sh 'ssh ubuntu@18.134.136.24 kubectl apply -f .'
+                            }catch(error){
+                                 sh 'ssh ubuntu@18.134.136.24 kubectl create -f .'
+                            
+                            }   
+                            
+                        }             
+                           
+                     }    
+                }
         
-        }
+            
       }
 }
 
