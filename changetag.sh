@@ -1,2 +1,2 @@
 #!/bin/bash
-sed "s/BUILD_ID/$1/g" pods.yml > skan-pod.yml
+sed "s/v1.$BUILD_ID/$1/g" pods.yml > skan-pod.yml
