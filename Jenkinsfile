@@ -101,7 +101,7 @@ pipeline{
         
         environment{
         
-            DOCKER_TAG = getDockerTag()
+            DOCKER_TAG= getDockerTag()
         }
         
         stage('Docker image build'){
