@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
     - name: skan
-      image: manikandan27/skan:latest
+      image: manikandan27/skan:BUILD_ID
       ports:
         - containerport: 8080
