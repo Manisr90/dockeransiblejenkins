@@ -5,11 +5,14 @@ pipeline{
         node{
             
             label 'mini'
-            
-            
+                        
         }
     }
+    environment{
+        
+        DOCKER_TAG = getdockertag()
     
+    }
      tools{
          
          maven 'maven'
@@ -105,9 +108,8 @@ pipeline{
             
                 script{
                 
-                    sh 'docker build -t $JOB_NAME:v1.$BUILD_ID .'
-                    sh 'docker tag $JOB_NAME:v1.$BUILD_ID manikandan27/$JOB_NAME:v1.$BUILD_ID'
-                    sh 'docker tag $JOB_NAME:v1.$BUILD_ID manikandan27/$JOB_NAME:latest'
+                    sh 'docker build -t manikandan27/skan:${DOCKER_TAG} .'
+                    
                 
                 }
             
@@ -123,8 +125,7 @@ pipeline{
                 
                      withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerpwd')]) {
                          sh 'docker login -u manikandan27 -p ${dockerpwd}'
-                         sh 'docker push manikandan27/$JOB_NAME:v1.$BUILD_ID'
-                         sh 'docker push manikandan27/$JOB_NAME:latest'
+                         sh 'docker push manikandan27/skan:${DOCKER_TAG}'
         
                     }
                                               
