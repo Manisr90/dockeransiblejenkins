@@ -7,8 +7,8 @@ spec:
      app: skan
   ports:
   - protocol: TCP
-    port: 80
+    port: 32000
     targetPort: 8080
     nodePort: 30000
-    type: nodePort
+       type: LoadBalancer
      
