@@ -133,8 +133,6 @@ pipeline{
             stage('Deploy to Kubernetes'){
              
                 steps{
-                        sh 'chmod +x changetag.sh'
-                        sh './changetag.sh $BUILD_ID'
                         sshagent(['kops']) {
                         sh "scp -o StrictHostKeyChecking=no services.yml pods.yml ubuntu@18.134.136.24:/home/ubuntu/"  
                         script{
