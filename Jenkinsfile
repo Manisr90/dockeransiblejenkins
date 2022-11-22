@@ -87,7 +87,7 @@ pipeline{
                           type: 'war']], 
                         credentialsId: 'nexus-pwd', 
                         groupId: 'in.javahome',
-                        nexusUrl: '3.10.174.182:8081', 
+                        nexusUrl: '13.40.36.65:8081', 
                         nexusVersion: 'nexus3',
                         protocol: 'http',
                         repository: 'nexusRepo', 
