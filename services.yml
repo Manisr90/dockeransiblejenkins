@@ -1,15 +1,13 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: skan
+  name: srm-service
 spec:
   selector:
-     app: skan
+     app: srm-dev
   ports:
-    - name: skan
-      protocol: TCP
-      port: 32000
+    - protocol: TCP
+      port: 8080
       targetPort: 8080
-      nodePort: 30000
   type: LoadBalancer
      
