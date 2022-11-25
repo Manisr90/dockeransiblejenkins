@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: srm
+  labels:
+    app: srm-dev
+spec:
+  containers:
+    - name: srm-dev-cont
+      image: manikandan27/newimage:10
+      ports:
+        - containerPort: 8080
