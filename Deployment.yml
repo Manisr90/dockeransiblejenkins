@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
     - name: srm-dev-cont
-      image: manikandan27/newimage:10
+      image: manikandan27/newimage:tagVersion 
       ports:
         - containerPort: 8080
