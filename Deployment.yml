@@ -10,3 +10,4 @@ spec:
       image: 312617587281.dkr.ecr.eu-west-2.amazonaws.com/srmecr:${DOCKER_TAG}
       ports:
         - containerPort: 8080
+        
